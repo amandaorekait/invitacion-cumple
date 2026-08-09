@@ -13,7 +13,7 @@ const FALLING_ICONS = Array.from({ length: 30 }, (_, i) => ({
 
 export default function Home() {
   return (
-    <div className="relative flex min-h-screen w-full flex-1 items-center justify-center overflow-hidden bg-linear-to-br from-[#ff7a1a] via-[#ff4d6d] to-[#c81e6b] px-4 py-10 sm:py-16">
+    <div className="relative flex h-dvh w-full flex-1 items-center justify-center overflow-hidden bg-linear-to-br from-[#ff7a1a] via-[#ff4d6d] to-[#c81e6b] px-4 py-6 sm:py-16">
       {/* decorative blobs */}
       <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-[#ffb347]/40 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-28 -right-16 h-80 w-80 rounded-full bg-[#ff2e93]/40 blur-3xl" />
@@ -22,7 +22,7 @@ export default function Home() {
    
 
       {/* the giant card */}
-      <main className="animate-pop-in relative z-10 flex w-full max-w-sm flex-col items-center overflow-hidden rounded-[2.5rem] bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:max-w-md sm:px-10 sm:py-14">
+      <main className="animate-pop-in relative z-10 flex max-h-full w-full max-w-sm flex-col items-center overflow-hidden rounded-[2.5rem] bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:max-w-md sm:px-10 sm:py-14">
         <div className="pointer-events-none absolute inset-0 -z-10">
           {FALLING_ICONS.map((item) => (
             <span

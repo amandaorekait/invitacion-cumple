@@ -100,7 +100,7 @@ export default function JuegoPage() {
           </span>
         </div>
 
-        {/* TODO: controles de testing, quitar antes de publicar
+        {/* TODO: controles de testing, quitar antes de publicar    
         <div className="mb-2 flex items-center gap-2 rounded-full border-2 border-dashed border-yellow-300 bg-black/40 px-3 py-1.5 text-xs font-bold text-yellow-300">
           <button
             type="button"
@@ -122,10 +122,11 @@ export default function JuegoPage() {
             ➡
           </button>
         </div>
-        */}
+         */}
+     
 
         {step === "scratch" && (
-          <div className="animate-pop-in flex w-full min-h-0 flex-1 flex-col items-center">
+          <div className="animate-pop-in flex w-full min-h-0 flex-1 flex-col items-center justify-center">
             <h1 className="shrink-0 text-center text-2xl font-black text-white sm:text-3xl">
               RASCA Y DESCUBRE
             </h1>
@@ -171,7 +172,7 @@ export default function JuegoPage() {
         )}
 
         {step === "memory" && (
-          <div className="animate-pop-in flex w-full min-h-0 flex-1 flex-col items-center">
+          <div className="animate-pop-in flex w-full min-h-0 flex-1 flex-col items-center justify-center">
             <h1 className="shrink-0 text-center text-2xl font-black text-white sm:text-3xl">
               ENCUENTRA LAS PAREJAS
             </h1>
@@ -216,7 +217,7 @@ export default function JuegoPage() {
         )}
 
         {step === "balloons" && (
-          <div className="animate-pop-in flex w-full min-h-0 flex-1 flex-col items-center">
+          <div className="animate-pop-in flex w-full min-h-0 flex-1 flex-col items-center justify-center">
             <h1 className="shrink-0 text-center text-2xl font-black text-white sm:text-3xl">
               REVIENTA LOS GLOBOS
             </h1>
@@ -261,7 +262,7 @@ export default function JuegoPage() {
         )}
 
         {step === "quiz" && (
-          <div className="animate-pop-in flex w-full min-h-0 flex-1 flex-col items-center">
+          <div className="animate-pop-in flex w-full min-h-0 flex-1 flex-col items-center justify-center">
             <h1 className="shrink-0 text-center text-2xl font-black text-white sm:text-3xl">
               ¿Cuánto me conoces?
             </h1>
