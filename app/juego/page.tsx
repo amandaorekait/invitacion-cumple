@@ -100,7 +100,7 @@ export default function JuegoPage() {
           </span>
         </div>
 
-        {/* TODO: controles de testing, quitar antes de publicar */}
+        {/* TODO: controles de testing, quitar antes de publicar 
         <div className="mb-2 flex items-center gap-2 rounded-full border-2 border-dashed border-yellow-300 bg-black/40 px-3 py-1.5 text-xs font-bold text-yellow-300">
           <button
             type="button"
@@ -122,6 +122,7 @@ export default function JuegoPage() {
             ➡
           </button>
         </div>
+        */}
 
         {step === "scratch" && (
           <div className="animate-pop-in flex w-full flex-col items-center">
