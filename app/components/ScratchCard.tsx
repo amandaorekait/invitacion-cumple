@@ -177,7 +177,7 @@ export default function ScratchCard({
       className={`relative overflow-hidden rounded-3xl ${className}`}
     >
       <div
-        className={`absolute inset-0 select-none transition-[filter] duration-1000 ease-out ${
+        className={`absolute inset-0 select-none overflow-hidden rounded-3xl transition-[filter] duration-1000 ease-out ${
           isRevealed ? "blur-none" : "blur-md"
         }`}
       >
@@ -185,7 +185,7 @@ export default function ScratchCard({
       </div>
       <canvas
         ref={canvasRef}
-        className={`absolute inset-0 h-full w-full touch-none transition-opacity duration-700 ${
+        className={`absolute inset-0 h-full w-full touch-none rounded-3xl transition-opacity duration-700 ${
           isRevealed ? "pointer-events-none opacity-0" : "opacity-100"
         }`}
         onPointerDown={handlePointerDown}
