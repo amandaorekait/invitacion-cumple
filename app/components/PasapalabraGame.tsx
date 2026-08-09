@@ -238,14 +238,7 @@ export default function PasapalabraGame({
         })}
       </div>
 
-      <button
-        type="button"
-        onClick={handlePrevTest}
-        disabled={currentIndex === 0}
-        className="rounded-full border-2 border-dashed border-[#7a3b1e]/30 bg-transparent px-3 py-1 text-xs font-semibold text-[#7a3b1e]/60 transition-transform active:scale-95 disabled:opacity-30"
-      >
-        ⏪ Anterior (solo pruebas)
-      </button>
+      
     </div>
   );
 }

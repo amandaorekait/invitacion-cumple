@@ -65,7 +65,7 @@ export default function Home() {
         </p>
 
         <p className="mt-4 max-w-xs text-sm leading-relaxed text-[#7a3b1e] sm:text-base">
-          Antes de saber dónde y cuándo, tienes que ganarte tu lugar. Y si quieres venir, tendrás que jugar. ¿Aceptas el reto?
+          Antes de saber dónde y cuándo, tienes que ganarte tu sitio. Y si quieres venir, tendrás que jugar. ¿Aceptas el reto?
         </p>
 
         <Link

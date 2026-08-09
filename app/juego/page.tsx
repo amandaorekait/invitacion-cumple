@@ -206,8 +206,8 @@ export default function JuegoPage() {
                 ¡Nivel 2 completado!
               </h2>
               <p className="text-sm font-medium text-[#7a3b1e] sm:text-base">
-                Ya sabes el día y la hora. Revienta todos los globos para
-                desbloquear el sitio, pero...cuidado, hay trampa📍
+                Ya sabes el día y la hora. Explota todos los globos para
+                desbloquear el sitio, pero cuidado, hay trampa📍
               </p>
               <button
                 type="button"
@@ -223,10 +223,10 @@ export default function JuegoPage() {
         {step === "balloons" && (
           <div className="animate-pop-in flex w-full min-h-0 flex-1 flex-col items-center justify-center">
             <h1 className="shrink-0 text-center text-2xl font-black text-white sm:text-3xl">
-              REVIENTA LOS GLOBOS
+              EXPLOTA LOS GLOBOS
             </h1>
             <p className="mt-2 shrink-0 text-center text-sm font-medium text-white/90 sm:text-base">
-              Revienta todos los globos y desbloquea el lugar 📍
+              Explota todos los globos y desbloquea el sitio 📍
             </p>
             <div className="mt-4 flex w-full min-h-0 flex-1 max-h-112 flex-col rounded-3xl bg-[#fff3e6] p-4 shadow-2xl sm:max-h-128 sm:p-6">
               <BalloonPopGame onComplete={() => setStep("placeReveal")} />
@@ -253,7 +253,7 @@ export default function JuegoPage() {
                 ¡Nivel 3 completado!
               </h2>
               <p className="text-sm font-medium text-[#7a3b1e] sm:text-base">
-                Ya sabes el día, la hora y el lugar. Responde el quiz para
+                Ya sabes el día, la hora y pronto el sitio. Responde el quiz para
                 conocer las condiciones de entrada 🎟️
               </p>
               <button
