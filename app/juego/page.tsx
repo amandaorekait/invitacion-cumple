@@ -69,15 +69,15 @@ export default function JuegoPage() {
 
   useEffect(() => {
     if (step === "hourReveal") {
-      const timer = window.setTimeout(() => setStep("unlocked2"), 1800);
+      const timer = window.setTimeout(() => setStep("unlocked2"), 3500);
       return () => window.clearTimeout(timer);
     }
     if (step === "placeReveal") {
-      const timer = window.setTimeout(() => setStep("unlocked3"), 1800);
+      const timer = window.setTimeout(() => setStep("unlocked3"), 3500);
       return () => window.clearTimeout(timer);
     }
     if (step === "conditionsReveal") {
-      const timer = window.setTimeout(() => setStep("unlocked4"), 1800);
+      const timer = window.setTimeout(() => setStep("unlocked4"), 3500);
       return () => window.clearTimeout(timer);
     }
   }, [step]);
@@ -100,7 +100,7 @@ export default function JuegoPage() {
           </span>
         </div>
 
-        {/* TODO: controles de testing, quitar antes de publicar    
+        {/* TODO: controles de testing, quitar antes de publicar      */}
         <div className="mb-2 flex items-center gap-2 rounded-full border-2 border-dashed border-yellow-300 bg-black/40 px-3 py-1.5 text-xs font-bold text-yellow-300">
           <button
             type="button"
@@ -122,8 +122,6 @@ export default function JuegoPage() {
             ➡
           </button>
         </div>
-         */}
-     
 
         {step === "scratch" && (
           <div className="animate-pop-in flex w-full min-h-0 flex-1 flex-col items-center justify-center">
@@ -152,22 +150,24 @@ export default function JuegoPage() {
         )}
 
         {step === "unlocked1" && (
-          <div className="animate-pop-in mt-4 flex w-full min-h-0 flex-1 max-h-88 flex-col items-center justify-center gap-4 rounded-3xl bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:max-h-96">
-            <span className="text-5xl">🔓</span>
-            <h2 className="text-xl font-black text-[#c81e6b] sm:text-2xl">
-              ¡Nivel 1 completado!
-            </h2>
-            <p className="text-sm font-medium text-[#7a3b1e] sm:text-base">
-              Ya sabes el día. Encuentra las parejas en el próximo nivel para
-              desbloquear la hora ⏰
-            </p>
-            <button
-              type="button"
-              onClick={() => setStep("memory")}
-              className="animate-pulse-glow mt-2 flex h-14 w-full select-none items-center justify-center rounded-full bg-linear-to-r from-[#ff2e93] to-[#ff7a1a] text-base font-bold text-white shadow-lg transition-transform active:scale-95 sm:h-16"
-            >
-              Ir al nivel 2 🧠
-            </button>
+          <div className="flex w-full min-h-0 flex-1 flex-col items-center justify-center">
+            <div className="animate-pop-in flex w-full max-h-88 flex-col items-center justify-center gap-4 rounded-3xl bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:max-h-96">
+              <span className="text-5xl">🔓</span>
+              <h2 className="text-xl font-black text-[#c81e6b] sm:text-2xl">
+                ¡Nivel 1 completado!
+              </h2>
+              <p className="text-sm font-medium text-[#7a3b1e] sm:text-base">
+                Ya sabes el día. Encuentra las parejas en el próximo nivel para
+                desbloquear la hora ⏰
+              </p>
+              <button
+                type="button"
+                onClick={() => setStep("memory")}
+                className="animate-pulse-glow mt-2 flex h-14 w-full select-none items-center justify-center rounded-full bg-linear-to-r from-[#ff2e93] to-[#ff7a1a] text-base font-bold text-white shadow-lg transition-transform active:scale-95 sm:h-16"
+              >
+                Ir al nivel 2 🧠
+              </button>
+            </div>
           </div>
         )}
 
@@ -179,40 +179,44 @@ export default function JuegoPage() {
             <p className="mt-2 shrink-0 text-center text-sm font-medium text-white/90 sm:text-base">
               Pon a prueba tu memoria y desbloquea la hora 🕜
             </p>
-            <div className="mt-4 flex w-full min-h-0 flex-1 max-h-112 flex-col justify-center rounded-3xl bg-[#fff3e6] p-4 shadow-2xl sm:max-h-128 sm:p-6">
+            <div className="mt-4 flex w-full min-h-0 flex-1 max-h-128 flex-col justify-center rounded-3xl bg-[#fff3e6] p-4 shadow-2xl sm:max-h-144 sm:p-6">
               <MemoryGame onComplete={() => setStep("hourReveal")} />
             </div>
           </div>
         )}
 
         {step === "hourReveal" && (
-          <div className="animate-pop-in mt-4 flex w-full min-h-0 flex-1 max-h-112 flex-col items-center justify-center gap-2 rounded-3xl bg-linear-to-b from-[#fff3e6] to-[#ffd9a0] px-6 text-center shadow-2xl sm:max-h-128">
-            <p className="mt-1 text-6xl font-black leading-none text-[#c81e6b] sm:text-7xl">
-              14:00
-            </p>
-            <p className="text-lg font-black uppercase tracking-wide text-[#ff7a1a] sm:text-xl">
-              hs
-            </p>
+          <div className="flex w-full min-h-0 flex-1 flex-col items-center justify-center">
+            <div className="animate-pop-in flex w-full max-h-112 flex-col items-center justify-center gap-2 rounded-3xl bg-linear-to-b from-[#fff3e6] to-[#ffd9a0] px-6 py-10 text-center shadow-2xl sm:max-h-128">
+              <p className="mt-1 text-6xl font-black leading-none text-[#c81e6b] sm:text-7xl">
+                14:00
+              </p>
+              <p className="text-lg font-black uppercase tracking-wide text-[#ff7a1a] sm:text-xl">
+                hs
+              </p>
+            </div>
           </div>
         )}
 
         {step === "unlocked2" && (
-          <div className="animate-pop-in mt-4 flex w-full min-h-0 flex-1 max-h-88 flex-col items-center justify-center gap-4 rounded-3xl bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:max-h-96">
-            <span className="text-5xl">🔓</span>
-            <h2 className="text-xl font-black text-[#c81e6b] sm:text-2xl">
-              ¡Nivel 2 completado!
-            </h2>
-            <p className="text-sm font-medium text-[#7a3b1e] sm:text-base">
-              Ya sabes el día y la hora. Revienta todos los globos para
-              desbloquear el sitio, pero...cuidado, hay trampa📍
-            </p>
-            <button
-              type="button"
-              onClick={() => setStep("balloons")}
-              className="animate-pulse-glow mt-2 flex h-14 w-full select-none items-center justify-center rounded-full bg-linear-to-r from-[#ff2e93] to-[#ff7a1a] text-base font-bold text-white shadow-lg transition-transform active:scale-95 sm:h-16"
-            >
-              Ir al nivel 3 🎈
-            </button>
+          <div className="flex w-full min-h-0 flex-1 flex-col items-center justify-center">
+            <div className="animate-pop-in flex w-full max-h-88 flex-col items-center justify-center gap-4 rounded-3xl bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:max-h-96">
+              <span className="text-5xl">🔓</span>
+              <h2 className="text-xl font-black text-[#c81e6b] sm:text-2xl">
+                ¡Nivel 2 completado!
+              </h2>
+              <p className="text-sm font-medium text-[#7a3b1e] sm:text-base">
+                Ya sabes el día y la hora. Revienta todos los globos para
+                desbloquear el sitio, pero...cuidado, hay trampa📍
+              </p>
+              <button
+                type="button"
+                onClick={() => setStep("balloons")}
+                className="animate-pulse-glow mt-2 flex h-14 w-full select-none items-center justify-center rounded-full bg-linear-to-r from-[#ff2e93] to-[#ff7a1a] text-base font-bold text-white shadow-lg transition-transform active:scale-95 sm:h-16"
+              >
+                Ir al nivel 3 🎈
+              </button>
+            </div>
           </div>
         )}
 
@@ -231,33 +235,35 @@ export default function JuegoPage() {
         )}
 
         {step === "placeReveal" && (
-          <div className="animate-pop-in mt-4 flex w-full min-h-0 flex-1 max-h-112 flex-col items-center justify-center gap-2 rounded-3xl bg-linear-to-b from-[#fff3e6] to-[#ffd9a0] px-6 text-center shadow-2xl sm:max-h-128">
-            <span className="text-6xl">📍</span>
-            <p className="mt-2 text-2xl font-black leading-snug text-[#c81e6b] sm:text-3xl">
-              ¡Muy pronto
-              <br />
-              te cuento!
-            </p>
+          <div className="flex w-full min-h-0 flex-1 flex-col items-center justify-center">
+            <div className="animate-pop-in flex w-full max-h-112 flex-col items-center justify-center gap-2 rounded-3xl bg-linear-to-b from-[#fff3e6] to-[#ffd9a0] px-6 py-10 text-center shadow-2xl sm:max-h-128">
+              <span className="text-6xl">📍</span>
+              <p className="mt-2 text-2xl font-black leading-snug text-[#c81e6b] sm:text-3xl">
+                ¡Muy pronto te cuento!
+              </p>
+            </div>
           </div>
         )}
 
         {step === "unlocked3" && (
-          <div className="animate-pop-in mt-4 flex w-full min-h-0 flex-1 max-h-88 flex-col items-center justify-center gap-4 rounded-3xl bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:max-h-96">
-            <span className="text-5xl">🔓</span>
-            <h2 className="text-xl font-black text-[#c81e6b] sm:text-2xl">
-              ¡Nivel 3 completado!
-            </h2>
-            <p className="text-sm font-medium text-[#7a3b1e] sm:text-base">
-              Ya sabes el día, la hora y el lugar. Responde el quiz para conocer
-              las condiciones de entrada 🎟️
-            </p>
-            <button
-              type="button"
-              onClick={() => setStep("quiz")}
-              className="animate-pulse-glow mt-2 flex h-14 w-full select-none items-center justify-center rounded-full bg-linear-to-r from-[#ff2e93] to-[#ff7a1a] text-base font-bold text-white shadow-lg transition-transform active:scale-95 sm:h-16"
-            >
-              Ir al nivel 4 🧠
-            </button>
+          <div className="flex w-full min-h-0 flex-1 flex-col items-center justify-center">
+            <div className="animate-pop-in flex w-full max-h-88 flex-col items-center justify-center gap-4 rounded-3xl bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:max-h-96">
+              <span className="text-5xl">🔓</span>
+              <h2 className="text-xl font-black text-[#c81e6b] sm:text-2xl">
+                ¡Nivel 3 completado!
+              </h2>
+              <p className="text-sm font-medium text-[#7a3b1e] sm:text-base">
+                Ya sabes el día, la hora y el lugar. Responde el quiz para
+                conocer las condiciones de entrada 🎟️
+              </p>
+              <button
+                type="button"
+                onClick={() => setStep("quiz")}
+                className="animate-pulse-glow mt-2 flex h-14 w-full select-none items-center justify-center rounded-full bg-linear-to-r from-[#ff2e93] to-[#ff7a1a] text-base font-bold text-white shadow-lg transition-transform active:scale-95 sm:h-16"
+              >
+                Ir al nivel 4 🧠
+              </button>
+            </div>
           </div>
         )}
 
@@ -277,34 +283,38 @@ export default function JuegoPage() {
         )}
 
         {step === "conditionsReveal" && (
-          <div className="animate-pop-in mt-4 flex w-full min-h-0 flex-1 max-h-112 flex-col items-center justify-center gap-2 rounded-3xl bg-linear-to-b from-[#fff3e6] to-[#ffd9a0] px-6 text-center shadow-2xl sm:max-h-128">
-            <span className="text-6xl">🎟️</span>
-            <p className="mt-2 text-xl font-black leading-snug text-[#c81e6b] sm:text-2xl">
-              Tu misión para el día 05:
-            </p>
-            <p className="text-3xl font-black uppercase tracking-wide text-[#ff7a1a] sm:text-4xl">
-              Venir de blanco
-            </p>
+          <div className="flex w-full min-h-0 flex-1 flex-col items-center justify-center">
+            <div className="animate-pop-in flex w-full max-h-112 flex-col items-center justify-center gap-2 rounded-3xl bg-linear-to-b from-[#fff3e6] to-[#ffd9a0] px-6 py-10 text-center shadow-2xl sm:max-h-128">
+              <span className="text-6xl">🎟️</span>
+              <p className="mt-2 text-xl font-black leading-snug text-[#c81e6b] sm:text-2xl">
+                Tu misión para el día 05:
+              </p>
+              <p className="text-3xl font-black uppercase tracking-wide text-[#ff7a1a] sm:text-4xl">
+                Venir de blanco
+              </p>
+            </div>
           </div>
         )}
 
         {step === "unlocked4" && (
-          <div className="animate-pop-in mt-4 flex w-full min-h-0 flex-1 max-h-88 flex-col items-center justify-center gap-4 rounded-3xl bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:max-h-96">
-            <span className="text-5xl">🔓</span>
-            <h2 className="text-xl font-black text-[#c81e6b] sm:text-2xl">
-              ¡Nivel 4 superadado!
-            </h2>
-            <p className="text-sm font-medium text-[#7a3b1e] sm:text-base">
-              Enhorabuena has superado todos los niveles. No esperaba menos de
-              tus habilidades y tu inteligencia.
-            </p>
-            <button
-              type="button"
-              onClick={() => setStep("message")}
-              className="animate-pulse-glow mt-2 flex h-14 w-full select-none items-center justify-center rounded-full bg-linear-to-r from-[#ff2e93] to-[#ff7a1a] text-base font-bold text-white shadow-lg transition-transform active:scale-95 sm:h-16"
-            >
-              Ver invitación 🎉
-            </button>
+          <div className="flex w-full min-h-0 flex-1 flex-col items-center justify-center">
+            <div className="animate-pop-in flex w-full max-h-88 flex-col items-center justify-center gap-4 rounded-3xl bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:max-h-96">
+              <span className="text-5xl">🔓</span>
+              <h2 className="text-xl font-black text-[#c81e6b] sm:text-2xl">
+                ¡Nivel 4 superadado!
+              </h2>
+              <p className="text-sm font-medium text-[#7a3b1e] sm:text-base">
+                Enhorabuena has superado todos los niveles. No esperaba menos de
+                tus habilidades y tu inteligencia.
+              </p>
+              <button
+                type="button"
+                onClick={() => setStep("message")}
+                className="animate-pulse-glow mt-2 flex h-14 w-full select-none items-center justify-center rounded-full bg-linear-to-r from-[#ff2e93] to-[#ff7a1a] text-base font-bold text-white shadow-lg transition-transform active:scale-95 sm:h-16"
+              >
+                Ver invitación 🎉
+              </button>
+            </div>
           </div>
         )}
 
@@ -325,13 +335,15 @@ export default function JuegoPage() {
             <div className="animate-pop-in mt-4 flex w-full shrink-0 flex-col items-center gap-3 rounded-3xl bg-[#fff3e6] px-6 py-8 text-center shadow-2xl">
               <span className="text-4xl">💌</span>
               <p className="whitespace-pre-line text-sm leading-relaxed text-[#7a3b1e] sm:text-base">
-                Gracias por la amistad, por el amor que me dais y por
-                acompañarme un año más. Me hace mucha ilusión despedir mis
-                veintitodos rodeada de vosotros, gente fundamental e importante
-                para mí.
-                {"\n\n"}
-                Sé que no siempre es fácil coincidir todos, pero aunque no
-                puedas venir, te tendré presente en mi día.
+                Gracias por tu amistad, por el amor que me das y por permanecer
+                un año más a mi lado. Me hace mucha ilusión despedir mis
+                veintidós contigo, porque eres una persona fundamental e
+                importante para mí. 
+                
+                   {"\n\n"}
+                   
+                   Sé que no siempre es fácil coincidir, pero
+                aunque no puedas venir, te tendré presente en mi día.
               </p>
 
               <div className="mt-2 w-full space-y-2 rounded-2xl bg-linear-to-br from-[#ff7a1a] to-[#c81e6b] px-4 py-3 text-left text-sm text-white sm:text-base">
