@@ -50,15 +50,6 @@ export default function JuegoPage() {
           </span>
         </div>
 
-        {/* TODO: botón de testing, quitar antes de publicar */}
-        <button
-          type="button"
-          onClick={() => setStep("message")}
-          className="mb-4 rounded-full border-2 border-dashed border-yellow-300 bg-black/40 px-4 py-1.5 text-xs font-bold text-yellow-300"
-        >
-          🧪 Saltar al mensaje final (testing)
-        </button>
-
         {step === "scratch" && (
           <>
           
