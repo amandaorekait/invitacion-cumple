@@ -206,8 +206,8 @@ export default function JuegoPage() {
                 ¡Nivel 2 completado!
               </h2>
               <p className="text-sm font-medium text-[#7a3b1e] sm:text-base">
-                Ya sabes el día y la hora. Explota todos los globos para
-                desbloquear el sitio, pero cuidado...📍
+                Ya sabes el día y la hora. Explota todos los globos con cuidado para
+                desbloquear el sitio📍
               </p>
               <button
                 type="button"
