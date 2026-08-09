@@ -43,7 +43,7 @@ export default function MemoryGame({
 
   const board = useMemo(() => shuffledBoard(ICONS), []);
 
-  const cols = 4;
+  const cols = 5;
 
   useEffect(() => {
     if (

@@ -126,7 +126,7 @@ export default function BalloonPopGame({
   return (
     <div
       ref={containerRef}
-      className="relative h-112 w-full overflow-hidden rounded-2xl bg-linear-to-b from-[#ffe1c2] to-[#ffc2de] sm:h-128"
+      className="relative h-72 w-full overflow-hidden rounded-2xl bg-linear-to-b from-[#ffe1c2] to-[#ffc2de] sm:h-112"
     >
       <div
         className={`pointer-events-none absolute inset-0 z-20 bg-[#ff2e5c] transition-opacity duration-200 ${
