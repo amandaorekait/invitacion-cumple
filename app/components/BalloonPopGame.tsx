@@ -126,7 +126,7 @@ export default function BalloonPopGame({
   return (
     <div
       ref={containerRef}
-      className="relative h-72 w-full overflow-hidden rounded-2xl bg-linear-to-b from-[#ffe1c2] to-[#ffc2de] sm:h-112"
+      className="relative h-[min(28rem,56dvh)] w-full overflow-hidden rounded-2xl bg-linear-to-b from-[#ffe1c2] to-[#ffc2de] sm:h-[min(32rem,60dvh)]"
     >
       <div
         className={`pointer-events-none absolute inset-0 z-20 bg-[#ff2e5c] transition-opacity duration-200 ${
@@ -134,7 +134,7 @@ export default function BalloonPopGame({
         }`}
       />
 
-      <p className="absolute left-1/2 top-3 z-10 -translate-x-1/2 rounded-full bg-white/80 px-4 py-1 text-xs font-bold text-[#c81e6b] shadow">
+      <p className="absolute left-40 top-3 z-10 -translate-x-1/2 rounded-full bg-white/80 px-1 py-1 text-xs font-bold text-[#c81e6b] shadow">
         Globos reventados: {Math.min(popped, TARGET_POPS)}/{TARGET_POPS}🎈
       </p>
 

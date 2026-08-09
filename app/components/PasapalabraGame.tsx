@@ -199,7 +199,7 @@ export default function PasapalabraGame({
         />
       </div>
 
-      <p className="min-h-12 text-center text-base font-bold text-[#7a3b1e] sm:text-lg">
+      <p className="min-h-14 text-center text-base font-bold text-[#7a3b1e] sm:text-lg">
         {current.question}
       </p>
 
@@ -230,7 +230,7 @@ export default function PasapalabraGame({
               type="button"
               disabled={showResult}
               onClick={() => handleSelect(opt)}
-              className={`flex min-h-14 items-center justify-center rounded-2xl px-3 py-2.5 text-center text-sm font-bold shadow-md transition-transform active:scale-95 ${optBg}`}
+              className={`flex min-h-16 items-center justify-center rounded-2xl px-3 py-3 text-center text-sm font-bold shadow-md transition-transform active:scale-95 ${optBg}`}
             >
               {opt}
             </button>

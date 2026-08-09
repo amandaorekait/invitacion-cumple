@@ -83,24 +83,24 @@ export default function JuegoPage() {
   }, [step]);
 
   return (
-    <div className="relative flex min-h-screen w-full flex-1 flex-col items-center overflow-hidden bg-linear-to-br from-[#ff7a1a] via-[#ff4d6d] to-[#c81e6b] px-4 py-5 sm:py-12">
+    <div className="relative flex min-h-dvh w-full flex-1 flex-col items-center overflow-hidden bg-linear-to-br from-[#ff7a1a] via-[#ff4d6d] to-[#c81e6b] px-4 py-8 sm:py-12">
       <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-[#ffb347]/40 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-28 -right-16 h-80 w-80 rounded-full bg-[#ff2e93]/40 blur-3xl" />
 
-      <div className="relative z-10 flex w-full max-w-sm flex-col items-center sm:max-w-md">
+      <div className="relative z-10 flex w-full max-w-sm flex-col items-center sm:max-w-md mt-5">
         <div className="mb-2 flex w-full items-center justify-between">
           <Link
             href="/"
             className="rounded-full bg-white/20 px-4 py-2 text-sm font-semibold text-white backdrop-blur transition-colors hover:bg-white/30"
           >
-            ← Volver
+            {step === "message" ? "Volver a jugar" : "← Volver"}
           </Link>
           <span className="rounded-full bg-white/20 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur">
             Nivel {level}/4
           </span>
         </div>
 
-        {/* TODO: controles de testing, quitar antes de publicar 
+        {/* TODO: controles de testing, quitar antes de publicar  */}
         <div className="mb-2 flex items-center gap-2 rounded-full border-2 border-dashed border-yellow-300 bg-black/40 px-3 py-1.5 text-xs font-bold text-yellow-300">
           <button
             type="button"
@@ -121,8 +121,8 @@ export default function JuegoPage() {
           >
             ➡
           </button>
-        </div>
-        */}
+        </div> 
+      
 
         {step === "scratch" && (
           <div className="animate-pop-in flex w-full flex-col items-center">
@@ -134,7 +134,7 @@ export default function JuegoPage() {
             </p>
 
             <ScratchCard
-              className="mt-4 h-72 w-full shadow-2xl sm:h-112"
+              className="mt-6 h-[min(28rem,56dvh)] w-full shadow-2xl sm:h-[min(32rem,60dvh)]"
               onComplete={() => setStep("unlocked1")}
             >
               <div className="flex h-full w-full flex-col items-center justify-center gap-2 bg-linear-to-b from-[#fff3e6] to-[#ffd9a0] px-6 text-center">
@@ -151,10 +151,10 @@ export default function JuegoPage() {
         )}
 
         {step === "unlocked1" && (
-          <div className="animate-pop-in mt-4 flex min-h-64 w-full flex-col items-center justify-center gap-3 rounded-3xl bg-[#fff3e6] px-6 py-8 text-center shadow-2xl">
+          <div className="animate-pop-in mt-6 flex min-h-[min(22rem,46dvh)] w-full flex-col items-center justify-center gap-4 rounded-3xl bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:min-h-[min(24rem,50dvh)]">
             <span className="text-5xl">🔓</span>
             <h2 className="text-xl font-black text-[#c81e6b] sm:text-2xl">
-              ¡Nivel 1 completo!
+              ¡Nivel 1 completado!
             </h2>
             <p className="text-sm font-medium text-[#7a3b1e] sm:text-base">
               Ya sabes el día. Encuentra las parejas en el próximo nivel para
@@ -178,16 +178,16 @@ export default function JuegoPage() {
             <p className="mt-2 text-center text-sm font-medium text-white/90 sm:text-base">
               Pon a prueba tu memoria y desbloquea la hora 🕜
             </p>
-            <div className="mt-4 flex min-h-64 w-full flex-col justify-center rounded-3xl bg-[#fff3e6] p-4 shadow-2xl sm:min-h-112 sm:p-6">
+            <div className="mt-6 flex min-h-[min(28rem,56dvh)] w-full flex-col justify-center rounded-3xl bg-[#fff3e6] p-4 shadow-2xl sm:min-h-[min(32rem,60dvh)] sm:p-6">
               <MemoryGame onComplete={() => setStep("hourReveal")} />
             </div>
           </div>
         )}
 
         {step === "hourReveal" && (
-          <div className="animate-pop-in mt-4 flex h-72 w-full flex-col items-center justify-center gap-2 rounded-3xl bg-linear-to-b from-[#fff3e6] to-[#ffd9a0] px-6 text-center shadow-2xl sm:h-112">
+          <div className="animate-pop-in mt-6 flex h-[min(28rem,56dvh)] w-full flex-col items-center justify-center gap-2 rounded-3xl bg-linear-to-b from-[#fff3e6] to-[#ffd9a0] px-6 text-center shadow-2xl sm:h-[min(32rem,60dvh)]">
             <p className="mt-1 text-6xl font-black leading-none text-[#c81e6b] sm:text-7xl">
-              13:30
+              14:00
             </p>
             <p className="text-lg font-black uppercase tracking-wide text-[#ff7a1a] sm:text-xl">
               hs
@@ -196,10 +196,10 @@ export default function JuegoPage() {
         )}
 
         {step === "unlocked2" && (
-          <div className="animate-pop-in mt-4 flex min-h-64 w-full flex-col items-center justify-center gap-3 rounded-3xl bg-[#fff3e6] px-6 py-8 text-center shadow-2xl">
+          <div className="animate-pop-in mt-6 flex min-h-[min(22rem,46dvh)] w-full flex-col items-center justify-center gap-4 rounded-3xl bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:min-h-[min(24rem,50dvh)]">
             <span className="text-5xl">🔓</span>
             <h2 className="text-xl font-black text-[#c81e6b] sm:text-2xl">
-              ¡Nivel 2 completo!
+              ¡Nivel 2 completado!
             </h2>
             <p className="text-sm font-medium text-[#7a3b1e] sm:text-base">
               Ya sabes el día y la hora. Revienta todos los globos para
@@ -223,14 +223,14 @@ export default function JuegoPage() {
             <p className="mt-2 text-center text-sm font-medium text-white/90 sm:text-base">
               Revienta todos los globos y desbloquea el lugar 📍
             </p>
-            <div className="mt-4 w-full rounded-3xl bg-[#fff3e6] p-4 shadow-2xl sm:p-6">
+            <div className="mt-6 w-full rounded-3xl bg-[#fff3e6] p-4 shadow-2xl sm:p-6">
               <BalloonPopGame onComplete={() => setStep("placeReveal")} />
             </div>
           </div>
         )}
 
         {step === "placeReveal" && (
-          <div className="animate-pop-in mt-4 flex h-72 w-full flex-col items-center justify-center gap-2 rounded-3xl bg-linear-to-b from-[#fff3e6] to-[#ffd9a0] px-6 text-center shadow-2xl sm:h-112">
+          <div className="animate-pop-in mt-6 flex h-[min(28rem,56dvh)] w-full flex-col items-center justify-center gap-2 rounded-3xl bg-linear-to-b from-[#fff3e6] to-[#ffd9a0] px-6 text-center shadow-2xl sm:h-[min(32rem,60dvh)]">
             <span className="text-6xl">📍</span>
             <p className="mt-2 text-2xl font-black leading-snug text-[#c81e6b] sm:text-3xl">
               ¡Muy pronto
@@ -241,10 +241,10 @@ export default function JuegoPage() {
         )}
 
         {step === "unlocked3" && (
-          <div className="animate-pop-in mt-4 flex min-h-64 w-full flex-col items-center justify-center gap-3 rounded-3xl bg-[#fff3e6] px-6 py-8 text-center shadow-2xl">
+          <div className="animate-pop-in mt-6 flex min-h-[min(22rem,46dvh)] w-full flex-col items-center justify-center gap-4 rounded-3xl bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:min-h-[min(24rem,50dvh)]">
             <span className="text-5xl">🔓</span>
             <h2 className="text-xl font-black text-[#c81e6b] sm:text-2xl">
-              ¡Nivel 3 completo!
+              ¡Nivel 3 completado!
             </h2>
             <p className="text-sm font-medium text-[#7a3b1e] sm:text-base">
               Ya sabes el día, la hora y el lugar. Responde el quiz para conocer
@@ -269,14 +269,14 @@ export default function JuegoPage() {
               Responde a las preguntas y desbloquea las condiciones de entrada
               🎟️
             </p>
-            <div className="mt-4 flex min-h-64 w-full flex-col justify-center rounded-3xl bg-[#fff3e6] p-4 shadow-2xl sm:min-h-112 sm:p-6">
+            <div className="mt-6 flex min-h-[min(28rem,56dvh)] w-full flex-col justify-center rounded-3xl bg-[#fff3e6] p-4 shadow-2xl sm:min-h-[min(32rem,60dvh)] sm:p-6">
               <PasapalabraGame onComplete={() => setStep("conditionsReveal")} />
             </div>
           </div>
         )}
 
         {step === "conditionsReveal" && (
-          <div className="animate-pop-in mt-4 flex h-72 w-full flex-col items-center justify-center gap-2 rounded-3xl bg-linear-to-b from-[#fff3e6] to-[#ffd9a0] px-6 text-center shadow-2xl sm:h-112">
+          <div className="animate-pop-in mt-6 flex h-[min(28rem,56dvh)] w-full flex-col items-center justify-center gap-2 rounded-3xl bg-linear-to-b from-[#fff3e6] to-[#ffd9a0] px-6 text-center shadow-2xl sm:h-[min(32rem,60dvh)]">
             <span className="text-6xl">🎟️</span>
             <p className="mt-2 text-xl font-black leading-snug text-[#c81e6b] sm:text-2xl">
               Tu misión para el día 05:
@@ -288,10 +288,10 @@ export default function JuegoPage() {
         )}
 
         {step === "unlocked4" && (
-          <div className="animate-pop-in mt-4 flex min-h-64 w-full flex-col items-center justify-center gap-3 rounded-3xl bg-[#fff3e6] px-6 py-8 text-center shadow-2xl">
+          <div className="animate-pop-in mt-6 flex min-h-[min(22rem,46dvh)] w-full flex-col items-center justify-center gap-4 rounded-3xl bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:min-h-[min(24rem,50dvh)]">
             <span className="text-5xl">🔓</span>
             <h2 className="text-xl font-black text-[#c81e6b] sm:text-2xl">
-              ¡Nivel 4 superado!
+              ¡Nivel 4 superadado!
             </h2>
             <p className="text-sm font-medium text-[#7a3b1e] sm:text-base">
               Enhorabuena has superado todos los niveles. No esperaba menos de
@@ -335,7 +335,7 @@ export default function JuegoPage() {
 
               <div className="mt-2 w-full space-y-2 rounded-2xl bg-linear-to-br from-[#ff7a1a] to-[#c81e6b] px-4 py-3 text-left text-sm text-white sm:text-base">
                 <p className="font-semibold">📅 Sábado 5 de septiembre</p>
-                <p className="font-semibold">🕜 13:30 hs</p>
+                <p className="font-semibold">🕜 14:00 hs</p>
                 <p className="font-semibold">
                   📍 Lugar: ¡muy pronto te cuento!
                 </p>
@@ -346,13 +346,6 @@ export default function JuegoPage() {
                 Guarda la fecha, ¡te espero para pasarla bien! 💌
               </p>
             </div>
-
-            <Link
-              href="/"
-              className="mt-8 flex h-14 w-full items-center justify-center rounded-full bg-white text-base font-bold text-[#c81e6b] shadow-lg transition-transform active:scale-95 sm:h-16 sm:text-lg"
-            >
-              Volver a jugar
-            </Link>
           </>
         )}
       </div>
