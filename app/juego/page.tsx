@@ -88,7 +88,7 @@ export default function JuegoPage() {
       <div className="pointer-events-none absolute -bottom-28 -right-16 h-80 w-80 rounded-full bg-[#ff2e93]/40 blur-3xl" />
 
       <div className="relative z-10 flex w-full max-w-sm flex-col items-center sm:max-w-md mt-5">
-        <div className="mb-2 flex w-full items-center justify-between">
+        <div className="mb-4 flex w-full items-center justify-between">
           <Link
             href="/"
             className="rounded-full bg-white/20 px-4 py-2 text-sm font-semibold text-white backdrop-blur transition-colors hover:bg-white/30"

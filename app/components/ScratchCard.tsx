@@ -10,6 +10,7 @@ type ScratchCardProps = {
 };
 
 const BRUSH_RADIUS = 13;
+const CORNER_RADIUS = 24;
 const REVEAL_THRESHOLD_DEFAULT = 0.96;
 const REVEAL_TO_COMPLETE_DELAY = 3500;
 
@@ -33,6 +34,12 @@ export default function ScratchCard({
     if (!ctx) return;
     const { width, height } = canvas;
 
+    ctx.clearRect(0, 0, width, height);
+    ctx.save();
+    ctx.beginPath();
+    ctx.roundRect(0, 0, width, height, CORNER_RADIUS);
+    ctx.clip();
+
     const gradient = ctx.createLinearGradient(0, 0, width, height);
     gradient.addColorStop(0, "#ff7a1a");
     gradient.addColorStop(1, "#ff2e93");
@@ -54,6 +61,7 @@ export default function ScratchCard({
     ctx.font = `bold ${Math.max(16, width * 0.09)}px sans-serif`;
     ctx.fillStyle = "rgba(255,255,255,0.9)";
     ctx.fillText("RASCA LA TARJETA", width / 2, height / 2);
+    ctx.restore();
   }, []);
 
   useEffect(() => {
