@@ -207,7 +207,7 @@ export default function JuegoPage() {
               </h2>
               <p className="text-sm font-medium text-[#7a3b1e] sm:text-base">
                 Ya sabes el día y la hora. Explota todos los globos para
-                desbloquear el sitio, pero cuidado, hay trampa📍
+                desbloquear el sitio, pero cuidado...📍
               </p>
               <button
                 type="button"
