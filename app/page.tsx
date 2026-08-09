@@ -75,13 +75,13 @@ export default function Home() {
           Jugar el primer nivel 🎮
         </Link>
         <p className="mt-3 text-xs font-medium text-[#a15a2e] sm:text-sm">
-          Supera los 3 niveles y desbloquea tu invitación
+          Supera los 4 niveles y desbloquea tu invitación
         </p>
 
         <div className="mt-8 flex w-full items-center gap-3 rounded-2xl bg-white/70 px-4 py-3 text-left">
           <span className="text-xl">🔒</span>
           <p className="text-xs font-semibold text-[#c81e6b] sm:text-sm">
-            Fecha, hora y lugar bloqueados
+            Fecha, hora, lugar y condiciones bloqueados
           </p>
         </div>
       </main>

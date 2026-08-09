@@ -5,12 +5,18 @@ import { useEffect, useRef, useState } from "react";
 const TARGET_POPS = 10;
 const SPAWN_INTERVAL_MS = 480;
 const TRAP_CHANCE = 0.3;
-const TRAP_ICONS = ["30", "❌", "💣", "🚫", "👻", "🎯", "⚡", "🕷️"];
+const MORPH_CHANCE = 0.35;
+const FLICKER_CHANCE = 0.3;
+const TICK_MS = 350;
+const TRAP_ICONS = ["30"];
 
 type Item = {
   id: number;
-  kind: "balloon" | "trap";
-  icon?: string;
+  baseKind: "balloon" | "trap";
+  trapIcon: string;
+  morph: boolean;
+  flicker: boolean;
+  phase: number;
   left: number;
   duration: number;
   drift: number;
@@ -29,6 +35,7 @@ export default function BalloonPopGame({
   const [popped, setPopped] = useState(0);
   const [penaltyFlash, setPenaltyFlash] = useState(false);
   const [popups, setPopups] = useState<Popup[]>([]);
+  const [tick, setTick] = useState(0);
   const nextId = useRef(0);
   const nextPopupId = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -42,10 +49,11 @@ export default function BalloonPopGame({
         ...prev,
         {
           id: nextId.current++,
-          kind: isTrap ? "trap" : "balloon",
-          icon: isTrap
-            ? TRAP_ICONS[Math.floor(Math.random() * TRAP_ICONS.length)]
-            : undefined,
+          baseKind: isTrap ? "trap" : "balloon",
+          trapIcon: TRAP_ICONS[Math.floor(Math.random() * TRAP_ICONS.length)],
+          morph: Math.random() < MORPH_CHANCE,
+          flicker: Math.random() < FLICKER_CHANCE,
+          phase: Math.floor(Math.random() * 8),
           left: 20 + Math.random() * 74,
           duration: 1.25 + Math.random() * 0.7,
           drift: -(60 + Math.random() * 110),
@@ -54,6 +62,14 @@ export default function BalloonPopGame({
         },
       ]);
     }, SPAWN_INTERVAL_MS);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (completedRef.current) return;
+      setTick((t) => t + 1);
+    }, TICK_MS);
     return () => clearInterval(interval);
   }, []);
 
@@ -110,7 +126,7 @@ export default function BalloonPopGame({
   return (
     <div
       ref={containerRef}
-      className="relative h-100 w-full overflow-hidden rounded-2xl bg-linear-to-b from-[#ffe1c2] to-[#ffc2de] sm:h-96"
+      className="relative h-112 w-full overflow-hidden rounded-2xl bg-linear-to-b from-[#ffe1c2] to-[#ffc2de] sm:h-128"
     >
       <div
         className={`pointer-events-none absolute inset-0 z-20 bg-[#ff2e5c] transition-opacity duration-200 ${
@@ -132,12 +148,21 @@ export default function BalloonPopGame({
         </span>
       ))}
 
-      {items.map((item) =>
-        item.kind === "balloon" ? (
+      {items.map((item) => {
+        const displayKind = item.morph
+          ? (tick + item.phase) % 8 < 4
+            ? "balloon"
+            : "trap"
+          : item.baseKind;
+        const isVisible = item.flicker
+          ? (tick + item.phase) % 5 !== 4
+          : true;
+
+        return displayKind === "balloon" ? (
           <button
             key={item.id}
             type="button"
-            onPointerDown={(e) => popBalloon(item.id, e)}
+            onPointerDown={(e) => isVisible && popBalloon(item.id, e)}
             onAnimationEnd={() => removeItem(item.id)}
             aria-label="Globo"
             className="animate-balloon-fall absolute select-none leading-none active:scale-125"
@@ -149,13 +174,21 @@ export default function BalloonPopGame({
               ["--balloon-drift" as string]: `${item.drift}px`,
             }}
           >
-            🎈
+            <span
+              className="block transition-opacity duration-150"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                pointerEvents: isVisible ? "auto" : "none",
+              }}
+            >
+              🎈
+            </span>
           </button>
         ) : (
           <button
             key={item.id}
             type="button"
-            onPointerDown={(e) => tapTrap(item.id, e)}
+            onPointerDown={(e) => isVisible && tapTrap(item.id, e)}
             onAnimationEnd={() => removeItem(item.id)}
             aria-label="No tocar"
             className="animate-balloon-fall absolute select-none leading-none font-black active:scale-125"
@@ -168,10 +201,18 @@ export default function BalloonPopGame({
               ["--balloon-drift" as string]: `${item.drift}px`,
             }}
           >
-            {item.icon}
+            <span
+              className="block transition-opacity duration-150"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                pointerEvents: isVisible ? "auto" : "none",
+              }}
+            >
+              {item.trapIcon}
+            </span>
           </button>
-        )
-      )}
+        );
+      })}
     </div>
   );
 }
