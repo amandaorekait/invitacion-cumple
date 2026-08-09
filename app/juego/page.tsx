@@ -350,7 +350,7 @@ export default function JuegoPage() {
                 <p className="font-semibold">📅 Sábado 5 de septiembre</p>
                 <p className="font-semibold">🕜 14:00 hs</p>
                 <p className="font-semibold">
-                  📍 Lugar: ¡muy pronto te cuento!
+                  📍 Sitio: ¡muy pronto te cuento!
                 </p>
                 <p className="font-semibold">🎟️ Vestimenta de blanco</p>
               </div>
