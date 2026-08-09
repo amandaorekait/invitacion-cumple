@@ -100,7 +100,7 @@ export default function JuegoPage() {
           </span>
         </div>
 
-        {/* TODO: controles de testing, quitar antes de publicar      */}
+        {/* TODO: controles de testing, quitar antes de publicar      
         <div className="mb-2 flex items-center gap-2 rounded-full border-2 border-dashed border-yellow-300 bg-black/40 px-3 py-1.5 text-xs font-bold text-yellow-300">
           <button
             type="button"
@@ -121,7 +121,7 @@ export default function JuegoPage() {
           >
             ➡
           </button>
-        </div>
+        </div>*/}
 
         {step === "scratch" && (
           <div className="animate-pop-in flex w-full min-h-0 flex-1 flex-col items-center justify-center">
@@ -337,7 +337,7 @@ export default function JuegoPage() {
               <p className="whitespace-pre-line text-sm leading-relaxed text-[#7a3b1e] sm:text-base">
                 Gracias por tu amistad, por el amor que me das y por permanecer
                 un año más a mi lado. Me hace mucha ilusión despedir mis
-                veintidós contigo, porque eres una persona fundamental e
+                veintitodos contigo, porque eres una persona fundamental e
                 importante para mí. 
                 
                    {"\n\n"}

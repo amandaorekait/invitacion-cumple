@@ -46,17 +46,32 @@ const QUESTIONS: Question[] = [
   },
   {
     question: "¿Qué hobbie me hubiese gustado aprender?",
-    options: ["Nado profesional", "Baile moderno", "Cantar opera", "Pintar cuadros"],
+    options: [
+      "Nado profesional",
+      "Baile moderno",
+      "Cantar opera",
+      "Pintar cuadros",
+    ],
     correctAnswer: "Baile moderno",
   },
   {
     question: "Película favorita",
-    options: ["Fractura", "La cenicienta", "El origen", "Un mostruo viene a verme"],
+    options: [
+      "Fractura",
+      "La cenicienta",
+      "El origen",
+      "Un mostruo viene a verme",
+    ],
     correctAnswer: "Un mostruo viene a verme",
   },
   {
     question: "Tarta de cumpleaños que no debe faltar en mi fiesta",
-    options: ["Tarta de chocolate", "Tarta de queso", "Tarta de la abuela", "Tarta de nata"],
+    options: [
+      "Tarta de chocolate",
+      "Tarta de queso",
+      "Tarta de la abuela",
+      "Tarta de nata",
+    ],
     correctAnswer: "Tarta de la abuela",
   },
 ];
@@ -73,11 +88,7 @@ const shuffle = <T,>(arr: T[]): T[] => {
 };
 
 const normalize = (s: string) =>
-  s
-    .trim()
-    .toUpperCase()
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "");
+  s.trim().toUpperCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 
 export default function PasapalabraGame({
   onComplete,
@@ -85,7 +96,7 @@ export default function PasapalabraGame({
   onComplete?: () => void;
 }) {
   const [questions, setQuestions] = useState<Question[]>(() =>
-    shuffle(QUESTIONS)
+    shuffle(QUESTIONS),
   );
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fails, setFails] = useState(0);
@@ -164,7 +175,8 @@ export default function PasapalabraGame({
           ¡Se acabaron los intentos!
         </h3>
         <p className="text-sm font-medium text-[#7a3b1e]">
-          El quiz se reinicia. ¡Tú puedes! 💪
+          Qué poquito me conoces.. pero oye, tienes otra oportunidad. ¡Tú puedes!
+          💪
         </p>
         <button
           type="button"
@@ -203,16 +215,6 @@ export default function PasapalabraGame({
         {current.question}
       </p>
 
-      {message && (
-        <p
-          className={`animate-pop-in text-sm font-bold ${
-            message.type === "correct" ? "text-[#1fae5f]" : "text-[#ff2e5c]"
-          }`}
-        >
-          {message.text}
-        </p>
-      )}
-
       <div className="grid w-full grid-cols-2 gap-2">
         {current.options.map((opt) => {
           const showResult = !!message;
@@ -236,9 +238,18 @@ export default function PasapalabraGame({
             </button>
           );
         })}
+        <div className="col-span-2 flex w-full items-center justify-center gap-2">
+          {message && (
+            <p
+              className={`animate-pop-in text-sm font-bold ${
+                message.type === "correct" ? "text-[#1fae5f]" : "text-[#ff2e5c]"
+              }`}
+            >
+              {message.text}
+            </p>
+          )}
+        </div>
       </div>
-
-      
     </div>
   );
 }
