@@ -309,7 +309,7 @@ export default function JuegoPage() {
         )}
 
         {step === "message" && (
-          <div className="flex w-full min-h-0 flex-1 flex-col items-center overflow-y-auto">
+          <div className="flex w-full min-h-0 flex-1 flex-col items-center justify-center">
             <div className="pointer-events-none flex shrink-0 justify-center gap-3 text-2xl">
               {CONFETTI.map((emoji, i) => (
                 <span
