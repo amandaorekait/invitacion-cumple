@@ -83,12 +83,12 @@ export default function JuegoPage() {
   }, [step]);
 
   return (
-    <div className="relative flex min-h-dvh w-full flex-1 flex-col items-center overflow-hidden bg-linear-to-br from-[#ff7a1a] via-[#ff4d6d] to-[#c81e6b] px-4 py-8 sm:py-12">
+    <div className="relative flex h-dvh w-full flex-col items-center overflow-hidden bg-linear-to-br from-[#ff7a1a] via-[#ff4d6d] to-[#c81e6b] px-4 py-4 sm:py-12">
       <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-[#ffb347]/40 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-28 -right-16 h-80 w-80 rounded-full bg-[#ff2e93]/40 blur-3xl" />
 
-      <div className="relative z-10 flex w-full max-w-sm flex-col items-center sm:max-w-md mt-5">
-        <div className="mb-4 flex w-full items-center justify-between">
+      <div className="relative z-10 flex h-full min-h-0 w-full max-w-sm flex-col items-center sm:max-w-md">
+        <div className="mb-4 flex w-full shrink-0 items-center justify-between">
           <Link
             href="/"
             className="rounded-full bg-white/20 px-4 py-2 text-sm font-semibold text-white backdrop-blur transition-colors hover:bg-white/30"
@@ -100,7 +100,7 @@ export default function JuegoPage() {
           </span>
         </div>
 
-        {/* TODO: controles de testing, quitar antes de publicar 
+        {/* TODO: controles de testing, quitar antes de publicar
         <div className="mb-2 flex items-center gap-2 rounded-full border-2 border-dashed border-yellow-300 bg-black/40 px-3 py-1.5 text-xs font-bold text-yellow-300">
           <button
             type="button"
@@ -121,20 +121,20 @@ export default function JuegoPage() {
           >
             ➡
           </button>
-        </div> 
-      */}
+        </div>
+        */}
 
         {step === "scratch" && (
-          <div className="animate-pop-in flex w-full flex-col items-center">
-            <h1 className="text-center text-2xl font-black text-white sm:text-3xl">
+          <div className="animate-pop-in flex w-full min-h-0 flex-1 flex-col items-center">
+            <h1 className="shrink-0 text-center text-2xl font-black text-white sm:text-3xl">
               RASCA Y DESCUBRE
             </h1>
-            <p className="mt-2 text-center text-sm font-medium text-white/90 sm:text-base">
+            <p className="mt-2 shrink-0 text-center text-sm font-medium text-white/90 sm:text-base">
               Pasa el dedo sobre la tarjeta y descubre el día 📅
             </p>
 
             <ScratchCard
-              className="mt-6 h-[min(28rem,56dvh)] w-full shadow-2xl sm:h-[min(32rem,60dvh)]"
+              className="mt-4 min-h-0 w-full max-h-112 flex-1 shadow-2xl sm:max-h-128"
               onComplete={() => setStep("unlocked1")}
             >
               <div className="flex h-full w-full flex-col items-center justify-center gap-2 bg-linear-to-b from-[#fff3e6] to-[#ffd9a0] px-6 text-center">
@@ -151,7 +151,7 @@ export default function JuegoPage() {
         )}
 
         {step === "unlocked1" && (
-          <div className="animate-pop-in mt-6 flex min-h-[min(22rem,46dvh)] w-full flex-col items-center justify-center gap-4 rounded-3xl bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:min-h-[min(24rem,50dvh)]">
+          <div className="animate-pop-in mt-4 flex w-full min-h-0 flex-1 max-h-88 flex-col items-center justify-center gap-4 rounded-3xl bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:max-h-96">
             <span className="text-5xl">🔓</span>
             <h2 className="text-xl font-black text-[#c81e6b] sm:text-2xl">
               ¡Nivel 1 completado!
@@ -171,21 +171,21 @@ export default function JuegoPage() {
         )}
 
         {step === "memory" && (
-          <div className="animate-pop-in flex w-full flex-col items-center">
-            <h1 className="text-center text-2xl font-black text-white sm:text-3xl">
+          <div className="animate-pop-in flex w-full min-h-0 flex-1 flex-col items-center">
+            <h1 className="shrink-0 text-center text-2xl font-black text-white sm:text-3xl">
               ENCUENTRA LAS PAREJAS
             </h1>
-            <p className="mt-2 text-center text-sm font-medium text-white/90 sm:text-base">
+            <p className="mt-2 shrink-0 text-center text-sm font-medium text-white/90 sm:text-base">
               Pon a prueba tu memoria y desbloquea la hora 🕜
             </p>
-            <div className="mt-6 flex min-h-[min(28rem,56dvh)] w-full flex-col justify-center rounded-3xl bg-[#fff3e6] p-4 shadow-2xl sm:min-h-[min(32rem,60dvh)] sm:p-6">
+            <div className="mt-4 flex w-full min-h-0 flex-1 max-h-112 flex-col justify-center rounded-3xl bg-[#fff3e6] p-4 shadow-2xl sm:max-h-128 sm:p-6">
               <MemoryGame onComplete={() => setStep("hourReveal")} />
             </div>
           </div>
         )}
 
         {step === "hourReveal" && (
-          <div className="animate-pop-in mt-6 flex h-[min(28rem,56dvh)] w-full flex-col items-center justify-center gap-2 rounded-3xl bg-linear-to-b from-[#fff3e6] to-[#ffd9a0] px-6 text-center shadow-2xl sm:h-[min(32rem,60dvh)]">
+          <div className="animate-pop-in mt-4 flex w-full min-h-0 flex-1 max-h-112 flex-col items-center justify-center gap-2 rounded-3xl bg-linear-to-b from-[#fff3e6] to-[#ffd9a0] px-6 text-center shadow-2xl sm:max-h-128">
             <p className="mt-1 text-6xl font-black leading-none text-[#c81e6b] sm:text-7xl">
               14:00
             </p>
@@ -196,7 +196,7 @@ export default function JuegoPage() {
         )}
 
         {step === "unlocked2" && (
-          <div className="animate-pop-in mt-6 flex min-h-[min(22rem,46dvh)] w-full flex-col items-center justify-center gap-4 rounded-3xl bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:min-h-[min(24rem,50dvh)]">
+          <div className="animate-pop-in mt-4 flex w-full min-h-0 flex-1 max-h-88 flex-col items-center justify-center gap-4 rounded-3xl bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:max-h-96">
             <span className="text-5xl">🔓</span>
             <h2 className="text-xl font-black text-[#c81e6b] sm:text-2xl">
               ¡Nivel 2 completado!
@@ -216,21 +216,21 @@ export default function JuegoPage() {
         )}
 
         {step === "balloons" && (
-          <div className="animate-pop-in flex w-full flex-col items-center">
-            <h1 className="text-center text-2xl font-black text-white sm:text-3xl">
+          <div className="animate-pop-in flex w-full min-h-0 flex-1 flex-col items-center">
+            <h1 className="shrink-0 text-center text-2xl font-black text-white sm:text-3xl">
               REVIENTA LOS GLOBOS
             </h1>
-            <p className="mt-2 text-center text-sm font-medium text-white/90 sm:text-base">
+            <p className="mt-2 shrink-0 text-center text-sm font-medium text-white/90 sm:text-base">
               Revienta todos los globos y desbloquea el lugar 📍
             </p>
-            <div className="mt-6 w-full rounded-3xl bg-[#fff3e6] p-4 shadow-2xl sm:p-6">
+            <div className="mt-4 flex w-full min-h-0 flex-1 max-h-112 flex-col rounded-3xl bg-[#fff3e6] p-4 shadow-2xl sm:max-h-128 sm:p-6">
               <BalloonPopGame onComplete={() => setStep("placeReveal")} />
             </div>
           </div>
         )}
 
         {step === "placeReveal" && (
-          <div className="animate-pop-in mt-6 flex h-[min(28rem,56dvh)] w-full flex-col items-center justify-center gap-2 rounded-3xl bg-linear-to-b from-[#fff3e6] to-[#ffd9a0] px-6 text-center shadow-2xl sm:h-[min(32rem,60dvh)]">
+          <div className="animate-pop-in mt-4 flex w-full min-h-0 flex-1 max-h-112 flex-col items-center justify-center gap-2 rounded-3xl bg-linear-to-b from-[#fff3e6] to-[#ffd9a0] px-6 text-center shadow-2xl sm:max-h-128">
             <span className="text-6xl">📍</span>
             <p className="mt-2 text-2xl font-black leading-snug text-[#c81e6b] sm:text-3xl">
               ¡Muy pronto
@@ -241,7 +241,7 @@ export default function JuegoPage() {
         )}
 
         {step === "unlocked3" && (
-          <div className="animate-pop-in mt-6 flex min-h-[min(22rem,46dvh)] w-full flex-col items-center justify-center gap-4 rounded-3xl bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:min-h-[min(24rem,50dvh)]">
+          <div className="animate-pop-in mt-4 flex w-full min-h-0 flex-1 max-h-88 flex-col items-center justify-center gap-4 rounded-3xl bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:max-h-96">
             <span className="text-5xl">🔓</span>
             <h2 className="text-xl font-black text-[#c81e6b] sm:text-2xl">
               ¡Nivel 3 completado!
@@ -261,22 +261,22 @@ export default function JuegoPage() {
         )}
 
         {step === "quiz" && (
-          <div className="animate-pop-in flex w-full flex-col items-center">
-            <h1 className="text-center text-2xl font-black text-white sm:text-3xl">
+          <div className="animate-pop-in flex w-full min-h-0 flex-1 flex-col items-center">
+            <h1 className="shrink-0 text-center text-2xl font-black text-white sm:text-3xl">
               ¿Cuánto me conoces?
             </h1>
-            <p className="mt-2 text-center text-sm font-medium text-white/90 sm:text-base">
+            <p className="mt-2 shrink-0 text-center text-sm font-medium text-white/90 sm:text-base">
               Responde a las preguntas y desbloquea las condiciones de entrada
               🎟️
             </p>
-            <div className="mt-6 flex min-h-[min(28rem,56dvh)] w-full flex-col justify-center rounded-3xl bg-[#fff3e6] p-4 shadow-2xl sm:min-h-[min(32rem,60dvh)] sm:p-6">
+            <div className="mt-4 flex w-full min-h-0 flex-1 max-h-112 flex-col justify-center rounded-3xl bg-[#fff3e6] p-4 shadow-2xl sm:max-h-128 sm:p-6">
               <PasapalabraGame onComplete={() => setStep("conditionsReveal")} />
             </div>
           </div>
         )}
 
         {step === "conditionsReveal" && (
-          <div className="animate-pop-in mt-6 flex h-[min(28rem,56dvh)] w-full flex-col items-center justify-center gap-2 rounded-3xl bg-linear-to-b from-[#fff3e6] to-[#ffd9a0] px-6 text-center shadow-2xl sm:h-[min(32rem,60dvh)]">
+          <div className="animate-pop-in mt-4 flex w-full min-h-0 flex-1 max-h-112 flex-col items-center justify-center gap-2 rounded-3xl bg-linear-to-b from-[#fff3e6] to-[#ffd9a0] px-6 text-center shadow-2xl sm:max-h-128">
             <span className="text-6xl">🎟️</span>
             <p className="mt-2 text-xl font-black leading-snug text-[#c81e6b] sm:text-2xl">
               Tu misión para el día 05:
@@ -288,7 +288,7 @@ export default function JuegoPage() {
         )}
 
         {step === "unlocked4" && (
-          <div className="animate-pop-in mt-6 flex min-h-[min(22rem,46dvh)] w-full flex-col items-center justify-center gap-4 rounded-3xl bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:min-h-[min(24rem,50dvh)]">
+          <div className="animate-pop-in mt-4 flex w-full min-h-0 flex-1 max-h-88 flex-col items-center justify-center gap-4 rounded-3xl bg-[#fff3e6] px-6 py-10 text-center shadow-2xl sm:max-h-96">
             <span className="text-5xl">🔓</span>
             <h2 className="text-xl font-black text-[#c81e6b] sm:text-2xl">
               ¡Nivel 4 superadado!
@@ -308,8 +308,8 @@ export default function JuegoPage() {
         )}
 
         {step === "message" && (
-          <>
-            <div className="pointer-events-none flex justify-center gap-3 text-2xl">
+          <div className="flex w-full min-h-0 flex-1 flex-col items-center overflow-y-auto">
+            <div className="pointer-events-none flex shrink-0 justify-center gap-3 text-2xl">
               {CONFETTI.map((emoji, i) => (
                 <span
                   key={i}
@@ -321,7 +321,7 @@ export default function JuegoPage() {
               ))}
             </div>
 
-            <div className="animate-pop-in mt-4 flex w-full flex-col items-center gap-3 rounded-3xl bg-[#fff3e6] px-6 py-8 text-center shadow-2xl">
+            <div className="animate-pop-in mt-4 flex w-full shrink-0 flex-col items-center gap-3 rounded-3xl bg-[#fff3e6] px-6 py-8 text-center shadow-2xl">
               <span className="text-4xl">💌</span>
               <p className="whitespace-pre-line text-sm leading-relaxed text-[#7a3b1e] sm:text-base">
                 Gracias por la amistad, por el amor que me dais y por
@@ -346,7 +346,7 @@ export default function JuegoPage() {
                 Guarda la fecha, ¡te espero para pasarla bien! 💌
               </p>
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>
