@@ -32,31 +32,10 @@ const STEP_LEVEL: Record<Step, number> = {
   message: 4,
 };
 
-const STEP_ORDER: Step[] = [
-  "scratch",
-  "unlocked1",
-  "memory",
-  "unlocked2",
-  "balloons",
-  "unlocked3",
-  "quiz",
-  "unlocked4",
-  "message",
-];
-
 export default function JuegoPage() {
   const [step, setStep] = useState<Step>("scratch");
 
   const level = STEP_LEVEL[step];
-  const stepIndex = STEP_ORDER.indexOf(step);
-
-  const goToStep = (delta: number) => {
-    const nextIndex = Math.min(
-      Math.max(stepIndex + delta, 0),
-      STEP_ORDER.length - 1,
-    );
-    setStep(STEP_ORDER[nextIndex]);
-  };
 
   return (
     <div className="relative flex min-h-screen w-full flex-1 flex-col items-center overflow-hidden bg-linear-to-br from-[#ff7a1a] via-[#ff4d6d] to-[#c81e6b] px-4 py-8 sm:py-12">
